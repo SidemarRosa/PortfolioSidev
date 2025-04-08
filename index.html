@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Sidemar, desenvolvedor full-stack especializado em criar experiências digitais excepcionais. Confira meus projetos e entre em contato!">
+    <meta name="keywords" content="Desenvolvedor, Portfólio, Full-stack, Projetos, Contato, HTML, CSS, JavaScript, React, Node.js">
+    <link rel="icon" href="Logo.png" type="image/x-icon">
+    <title>Sidemar Rosa - Desenvolvedor full-stack</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --bg-color: #0f0f13;
+            --bg-card: #1a1a22;
+            --accent-color: #5e72e4;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            padding: 2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(15, 15, 19, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 6rem;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(94, 114, 228, 0.2);
+        }
+        
+        .btn.outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            margin-left: 1rem;
+        }
+        
+        .btn.outline:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-tag {
+            background-color: rgba(94, 114, 228, 0.1);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 6rem 0;
+            background-color: rgba(26, 26, 34, 0.3);
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: var(--bg-card);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #2a2a35;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-tag {
+            background-color: rgba(94, 114, 228, 0.1);
+            color: var(--accent-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .project-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--bg-card);
+            border: 1px solid #2a2a35;
+            border-radius: 5px;
+            color: var(--text-primary);
+            resize: none;
+            outline: none;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--accent-color);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            background-color: var(--bg-card);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Media Queries */
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Dev<span>Portfólio</span></div>
+                <div class="nav-links">
+                    <a href="#inicio">Início</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#projetos">Projetos</a>
+                    <a href="#contato">Contato</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>Olá, eu sou <span class="highlight">Sidemar</span></h1>
+            <p>Desenvolvedor web full-stack especializado em criar experiências digitais excepcionais e interfaces modernas.</p>
+            <div>
+                <a href="#projetos" class="btn">Ver Projetos</a>
+                <a href="#contato" class="btn outline">Contato</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <p>Sou um desenvolvedor web apaixonado por criar soluções digitais elegantes e funcionais. Com mais de X anos de experiência, tenho trabalhado em projetos desafiadores que me permitiram aprimorar minhas habilidades técnicas e criativas.</p>
+            <p>Meu objetivo é desenvolver aplicações web que não apenas resolvam problemas, mas também proporcionem uma experiência excepcional ao usuário. Estou sempre em busca de novos desafios e tecnologias para expandir meu conhecimento.</p>
+            
+            <div class="skills">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Express</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Responsive Design</span>
+                <span class="skill-tag">RESTful APIs</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos" class="projects">
+        <div class="container">
+            <h2 class="section-title">Meus Projetos</h2>
+            <div class="project-grid">
+                <!-- Projeto 1 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/200" alt="Imagem do projeto">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-commerce Responsivo</h3>
+                        <p class="project-desc">Plataforma completa de e-commerce com sistema de pagamento, carrinho e área de administração.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Ver Demo</a>
+                            <a href="#" target="_blank">Ver Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projeto 2 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/200" alt="Imagem do projeto">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Dashboard Analytics</h3>
+                        <p class="project-desc">Dashboard interativo com gráficos e visualização de dados para análise de métricas de negócios.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Ver Demo</a>
+                            <a href="#" target="_blank">Ver Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projeto 3 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/200" alt="Imagem do projeto">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">App de Gestão de Tarefas</h3>
+                        <p class="project-desc">Aplicativo de produtividade com recursos de gerenciamento de tarefas, calendário e lembretes.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Ver Demo</a>
+                            <a href="#" target="_blank">Ver Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projeto 4 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/200" alt="Imagem do projeto">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Blog Tech</h3>
+                        <p class="project-desc">Blog com sistema de gerenciamento de conteúdo para publicação de artigos sobre tecnologia.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">GraphQL</span>
+                            <span class="tech-tag">Contentful</span>
+                            <span class="tech-tag">Vercel</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Ver Demo</a>
+                            <a href="#" target="_blank">Ver Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projeto 5 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/200" alt="Imagem do projeto">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Plataforma de Cursos</h3>
+                        <p class="project-desc">Sistema de e-learning com cursos, módulos, vídeos e sistema de pagamento por assinatura.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Ver Demo</a>
+                            <a href="#" target="_blank">Ver Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projeto 6 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/200" alt="Imagem do projeto">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Website Imobiliário</h3>
+                        <p class="project-desc">Site para imobiliária com sistema de busca de propriedades, filtragem e agendamento de visitas.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Google Maps API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Ver Demo</a>
+                            <a href="#" target="_blank">Ver Código</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" class="form-control" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/SidemarRosa" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/sidemar-rosa/" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/51995424692" target="_blank">Whatsapp</a>
+                <a href="https://anchorstec.com.br" target="_blank">site</a>
+            </div>
+            <p>&copy; 2025 Sidemar. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
