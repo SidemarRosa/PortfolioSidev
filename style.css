@@ -306,12 +306,77 @@ footer p {
     font-size: 0.9rem;
 }
 
+.hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    margin-left: 5%;
+}
+
+.stacks {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 60px 40px;
+    gap: 40px;
+    background-color: #0a0a0f;
+    flex-wrap: wrap;
+}
+
+.stacks-left {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    color: #f1f1f1;
+}
+
+.stacks-left h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.stacks-left p {
+    font-size: 1.5rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.stacks-right {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.stack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.stack-icon {
+    background-color: #151515;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #252f68;
+    transition: border 0.3s;
+    font-size: 2rem;
+    color: #1d38d1;
+}
+
+.stack-icon:hover {
+    border: 1px solid #2600ff;
+}
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .nav-links {
         display: none;
     }
