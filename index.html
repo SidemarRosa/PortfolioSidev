@@ -411,41 +411,42 @@
         appearOnScroll.observe(fader);
     });
   </script>
- <script>
-  const texts = ["Software Engineer", "Full-Stack Developer", "& Coffee Lover ☕"];
-  const element = document.querySelector(".typing-text");
+  <!-- Tipping h2 hero -->
+  <script>
+    const texts = ["Software Engineer", "Full-Stack Developer", "& Coffee Lover ☕"];
+    const element = document.querySelector(".typing-text");
 
-  let textIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let speed = 100;
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let speed = 100;
 
-  function typeEffect() {
-    const currentText = texts[textIndex];
-    if (isDeleting) {
-      charIndex--;
-      speed = 60;
-    } else {
-      charIndex++;
-      speed = 100;
+    function typeEffect() {
+      const currentText = texts[textIndex];
+      if (isDeleting) {
+        charIndex--;
+        speed = 60;
+      } else {
+        charIndex++;
+        speed = 100;
+      }
+
+      // Garante espaço com &nbsp; para não "encolher" o elemento
+      const typed = currentText.substring(0, charIndex);
+      element.innerHTML = typed || "&nbsp;";
+
+      if (!isDeleting && charIndex === currentText.length) {
+        speed = 1200;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        speed = 300;
+      }
+
+      setTimeout(typeEffect, speed);
     }
 
-    // Garante espaço com &nbsp; para não "encolher" o elemento
-    const typed = currentText.substring(0, charIndex);
-    element.innerHTML = typed || "&nbsp;";
-
-    if (!isDeleting && charIndex === currentText.length) {
-      speed = 1200;
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      textIndex = (textIndex + 1) % texts.length;
-      speed = 300;
-    }
-
-    setTimeout(typeEffect, speed);
-  }
-
-  document.addEventListener("DOMContentLoaded", typeEffect);
-</script>
+    document.addEventListener("DOMContentLoaded", typeEffect);
+  </script>
 </html>
