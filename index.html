@@ -33,6 +33,7 @@
           <div class="nav-links">
             <a href="#inicio">Início</a>
             <a href="#sobre">Sobre</a>
+            <a href="#stacks">Skills</a>
             <a href="#projetos">Projetos</a>
             <a href="#contato">Contato</a>
           </div>
@@ -56,10 +57,8 @@
 
     <section id="sobre" class="sobre">
       <div class="container sobre-content">
-       
-    
         <div class="sobre-img">
-          <img src="Development-pana.png" alt="Imagem representando Sidemar" />
+          <img src="Programming-pana.png" alt="Imagem representando Sidemar" />
         </div>
         <div class="sobre-texto">
           <h2>Sobre Mim</h2>
@@ -74,14 +73,13 @@
     </section>
     
 
-    <section class="stacks">
+    <section id="stacks" class="stacks">
       <div class="stacks-left">
         <h2>Linguagens e frameworks</h2>
         <p id="stack-description">
           Passe o mouse sobre um ícone para ver a descrição.
         </p>
       </div>
-
       <div class="stacks-right">
         <div class="stack-grid">
           <div class="stack-icon" data-desc="HTML é uma linguagem de marcação.">
@@ -101,7 +99,7 @@
           </div>
           <div
             class="stack-icon"
-            data-desc="Bootstrap é um framework CSS responsivo."
+            data-desc="Bootstrap5 é um framework CSS responsivo."
           >
             <i class="fab fa-bootstrap"></i>
           </div>
@@ -351,6 +349,7 @@
       </div>
     </footer>
   </body>
+  <!-- text -->
   <script>
     const especialidades = [
       "Desenvolvedor web full-stack especializado em criar experiências digitais excepcionais e interfaces modernas.",
@@ -366,6 +365,7 @@
       elemento.textContent = especialidades[index];
     }, 5000);
   </script>
+  <!-- skilss -->
   <script>
     const icons = document.querySelectorAll(".stack-icon");
     const desc = document.getElementById("stack-description");
