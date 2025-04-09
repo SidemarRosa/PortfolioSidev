@@ -50,12 +50,12 @@
         </p>
         <div>
           <a href="#projetos" class="btn">Ver Projetos</a>
-          <a href="#contato" class="btn outline">Contato</a>
+            <a href="https://wa.me/5551995424692" class="btn outline" target="_blank" rel="noopener noreferrer">Contato</a>
         </div>
       </div>
     </section>
 
-    <section id="sobre" class="sobre">
+    <section id="sobre" class="sobre fade-in">
       <div class="container sobre-content">
         <div class="sobre-img">
           <img src="Programming-pana.png" alt="Imagem representando Sidemar" />
@@ -71,9 +71,8 @@
         </div>
       </div>
     </section>
-    
-
-    <section id="stacks" class="stacks">
+  
+    <section id="stacks" class="stacks fade-in"">
       <div class="stacks-left">
         <h2>Linguagens e frameworks</h2>
         <p id="stack-description">
@@ -155,7 +154,7 @@
       </div>
     </section>
 
-    <section id="projetos" class="projects">
+    <section id="projetos" class="projects fade-in"">
       <div class="container">
         <h2 class="section-title">Meus Projetos</h2>
         <div class="project-grid">
@@ -306,7 +305,7 @@
       </div>
     </section>
 
-    <section id="contato" class="contact">
+    <section id="contato" class="contact fade-in"">
       <div class="container">
         <h2 class="section-title">Entre em Contato</h2>
         <form class="contact-form">
@@ -387,6 +386,27 @@
           desc.style.opacity = 1;
         }, 200);
       });
+    });
+  </script>
+  <!-- fade in -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+        threshold: 0.2,
+        rootMargin: "0px 0px -100px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
     });
   </script>
 </html>
