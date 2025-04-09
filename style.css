@@ -370,6 +370,51 @@ footer p {
 .stack-icon:hover {
     border: 1px solid #2600ff;
 }
+.sobre {
+    padding: 4rem 0;
+    background-color: #0d0d11;
+    color: #fff;
+  }
+  
+  .sobre-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .sobre-texto {
+    flex: 1 1 500px;
+    min-width: 300px;
+  }
+  
+  .sobre-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #4f46e5;
+    display: inline-block;
+  }
+  
+  .sobre-texto p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .sobre-img {
+    flex: 1 1 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+  }
+  
+  .sobre-img img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+  }
+  
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
