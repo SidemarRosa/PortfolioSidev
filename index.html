@@ -45,7 +45,7 @@
       <div class="container hero-content">
         <div class="hero-texto">
           <h1>Olá, eu sou <span class="highlight">Sidemar</span></h1>
-            <h2>Software Engineer & Coffee Lover ☕</h2>
+          <h2 class="typing-text" style="color: #3b82f6; font-size: 2rem; min-height: 2.5rem;"></h2>
           <p id="especialidade">
             Desenvolvedor web full-stack especializado em criar experiências
             digitais excepcionais e interfaces modernas.
@@ -411,4 +411,41 @@
         appearOnScroll.observe(fader);
     });
   </script>
+ <script>
+  const texts = ["Software Engineer", "Full-Stack Developer", "& Coffee Lover ☕"];
+  const element = document.querySelector(".typing-text");
+
+  let textIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let speed = 100;
+
+  function typeEffect() {
+    const currentText = texts[textIndex];
+    if (isDeleting) {
+      charIndex--;
+      speed = 60;
+    } else {
+      charIndex++;
+      speed = 100;
+    }
+
+    // Garante espaço com &nbsp; para não "encolher" o elemento
+    const typed = currentText.substring(0, charIndex);
+    element.innerHTML = typed || "&nbsp;";
+
+    if (!isDeleting && charIndex === currentText.length) {
+      speed = 1200;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      textIndex = (textIndex + 1) % texts.length;
+      speed = 300;
+    }
+
+    setTimeout(typeEffect, speed);
+  }
+
+  document.addEventListener("DOMContentLoaded", typeEffect);
+</script>
 </html>
